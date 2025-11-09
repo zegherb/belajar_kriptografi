@@ -44,15 +44,4 @@ def dekripsi(teks_sandi, geser):
     Mengembalikan:
         str: Hasil teks yang sudah terdekripsi (kembali ke bentuk aslinya).
     """
-    teks_terdekripsi = ""
-    for karakter in teks_sandi:
-        if karakter.isalpha():  # Jika huruf
-            dasar_pergeseran = ord('A') if karakter.isupper() else ord('a')
-            karakter_baru = chr((ord(karakter) - dasar_pergeseran - geser) % 26 + dasar_pergeseran)
-            teks_terdekripsi += karakter_baru
-        elif karakter.isdigit():  # Jika angka
-            karakter_baru = chr((ord(karakter) - ord('0') - geser) % 10 + ord('0'))
-            teks_terdekripsi += karakter_baru
-        else:
-            teks_terdekripsi += karakter
-    return teks_terdekripsi
+    return enkripsi(teks_sandi, -geser)
